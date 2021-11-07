@@ -79,11 +79,6 @@ namespace CretaceousPark.Controllers
 			return NoContent();
 		}
 
-		private bool AnimalExists(int id)
-		{
-			return _db.Animals.Any(e => e.AnimalId == id);
-		}
-
 		// DELETE: api/Animals/5
 		[HttpDelete("{id}")]
 		public async Task<IActionResult> DeleteAnimal(int id)
@@ -98,6 +93,11 @@ namespace CretaceousPark.Controllers
 			await _db.SaveChangesAsync();
 
 			return NoContent();
+		}
+
+				private bool AnimalExists(int id)
+		{
+			return _db.Animals.Any(e => e.AnimalId == id);
 		}
 	}
 }
